@@ -15,5 +15,7 @@ module.exports = function(code) {
 }
 
 function isConsole(node) {
-  return node.type === 'ExpressionStatement' &&  node.expression.type === 'CallExpression'  && node.expression.callee.type === 'MemberExpression' && node.expression.callee.object.type === 'Identifier' && node.expression.callee.object.name === 'console';
+  return node.type === 'ExpressionStatement' &&  node.expression.type === 'CallExpression' &&
+         node.expression.callee.type === 'MemberExpression' && node.expression.callee.object.type === 'Identifier' &&
+         node.expression.callee.object.name === 'console'
 }

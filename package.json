@@ -4,7 +4,8 @@
   "description": "remove the console statement from  javascript code by manipulating AST",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/YaoKaiLun/remove-console#readme",
   "devDependencies": {
+    "eslint": "^4.0.0",
     "mocha": "^3.4.2"
   },
   "dependencies": {
