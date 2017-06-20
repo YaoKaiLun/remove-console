@@ -9,13 +9,9 @@ describe('remove console', function() {
       source = `console.log('something')`;
       assert.equal('', removeConsole(source));
     });
-    it('should return source when the code just a comment including console', function() {
-      source = `// console.log('something')`;
-      assert.equal(source, removeConsole(source));
-    });
     it('should return source when the code just a string including console', function() {
       source = `"console.log('something')"`;
-      assert.equal(source, removeConsole(source));
+      assert.notEqual('', removeConsole(source));
     });
   });
 });
