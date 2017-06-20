@@ -1,10 +1,11 @@
 language: node_js
 node_js:
-  - "6"
+  - "6.9.2"
 install:
   - npm install
 script:
   - npm run lint
+  - npm test
 notifications:
   email:
     recipients:
