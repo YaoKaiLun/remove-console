@@ -4,6 +4,7 @@ let fs = require('fs'),
 path = require('path'),
 consoleRemove = require('../index')
 var glob = require("glob")
+var chalk = require('chalk')
 
 let argv = process.argv;
 const allowedExtName = ['js']
@@ -13,14 +14,18 @@ removeConsole(argv[2])
 
 function removeConsole(filePath) {
   fs.stat(filePath, function (err, stat) {
-    if (err) console.log('the path is incorrect')
+    if (err) {
+      console.error(chalk.red('the path is incorrect'))
+      process.exit(1)
+    }
     if (stat.isFile()) {
       if (!handleFile(filePath)) {
-        console.log('the file type does not supported')
+        console.error(chalk.red('the file type does not supported'))
       }
     } else if (stat.isDirectory()) {
       handleDir(filePath)
     }
+    console.log(chalk.green('done !'))
   })
 }
 
@@ -39,7 +44,7 @@ function handleFile(soureFilePath) {
 function handleDir(dir) {
   glob(path.join(dir, '**', '*.*'), function(err, files){
     if(err) {
-      console.log(err)
+      console.error(err)
       return
     }
     files.forEach(function(file) {
