@@ -7,6 +7,9 @@
     "test": "mocha",
     "lint": "eslint index.js"
   },
+  "bin": {
+    "rmcon": "./bin/removeConsole.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YaoKaiLun/remove-console.git"
@@ -21,12 +24,14 @@
   },
   "homepage": "https://github.com/YaoKaiLun/remove-console#readme",
   "devDependencies": {
+    "commander": "^2.9.0",
     "eslint": "^4.0.0",
     "mocha": "^3.4.2"
   },
   "dependencies": {
     "escodegen": "^1.8.1",
     "esprima": "^4.0.0",
-    "estraverse": "^4.2.0"
+    "estraverse": "^4.2.0",
+    "glob": "^7.1.2"
   }
 }
